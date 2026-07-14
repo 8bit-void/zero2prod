@@ -1,7 +1,6 @@
 use actix_web::{HttpResponse, web};
 use chrono::Utc;
 use sqlx::PgPool;
-use tracing::Instrument;
 use uuid::Uuid;
 
 #[derive(serde::Deserialize)]
@@ -11,10 +10,9 @@ pub struct FormData {
 }
 
 #[tracing::instrument(
-    name = "adding a new subscriber",
+    name = "Adding a new subscriber",
     skip(form, db_pool),
     fields(
-        request_id = %Uuid::new_v4(),
         subscriber_email = %form.email,
         subscriber_name = %form.name
     )
