@@ -1,10 +1,5 @@
 use unicode_segmentation::UnicodeSegmentation;
 
-pub struct NewSubscriber {
-    pub email: String,
-    pub name: SubscriberName,
-}
-
 #[derive(Debug)]
 pub struct SubscriberName(String);
 
@@ -47,12 +42,6 @@ impl SubscriberName {
     }
 }
 
-// pub fn inner_ref(&self) -> &str {
-//     // shared reference to inner string
-//     // read-only access allowed
-//     // no way to compromise invariants
-//     &self.0
-// }
 #[cfg(test)]
 mod tests {
     use crate::domain::SubscriberName;
