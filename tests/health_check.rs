@@ -85,12 +85,6 @@ pub async fn configure_database(config: &DatabaseSettings) -> PgPool {
     connection_pool
 }
 
-#[test]
-fn dummy_fail() {
-    let result: Result<&str, &str> = Err("The app crashed due to an IO error");
-    claims::assert_ok!(result);
-}
-
 #[tokio::test]
 async fn health_check_works() {
     // Arrange
